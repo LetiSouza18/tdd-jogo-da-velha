@@ -17,38 +17,18 @@ int VerificaVelha( int velha[3][3] )
 {
 	int soma = 0;
 
-	for (int i = 0; i < 3; i++) {
-		if (velha[i][2] == 1) {
-			soma += 1;
+	for (int coluna = 0; coluna < 3; coluna++) {
+		for (int linha = 0; linha < 3; linha++) {
+			if (velha[linha][coluna] == 1) {
+				soma += 1;
+			}
 		}
-	}
 
-	if (soma == 3) {
-		return 1;
-	}
-
-	soma = 0;
-
-	for (int i = 0; i < 3; i++) {
-		if (velha[i][0] == 1) {
-			soma += 1;
+		if (soma == 3) {
+			return 1;
 		}
-	}
 
-	if (soma == 3) {
-		return 1;
-	}
-
-	soma = 0;
-
-	for (int i = 0; i < 3; i++) {
-		if (velha[i][1] == 1) {
-			soma += 1;
-		}
-	}
-
-	if (soma == 3) {
-		return 1;
+		soma = 0;
 	}
 
 	return 0; /*!< retorna zero para teste */ 
