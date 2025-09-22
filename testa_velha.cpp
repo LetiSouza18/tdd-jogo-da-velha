@@ -26,3 +26,10 @@ TEST_CASE("Vitória x na primeira coluna da vertical", "[vitória][X]" ) {
     REQUIRE( VerificaVelha(teste1) == 1 );
 } 
  
+TEST_CASE("Vitória x na segunda coluna da vertical", "[vitória][X]" ) {
+    int teste1[3][3]= {   { 1, 1, 0 }, 
+                          { 2, 1, 0 },
+                          { 2, 1, 2 }
+                      };
+    REQUIRE( VerificaVelha(teste1) == 1 );
+} 
