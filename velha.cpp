@@ -39,6 +39,18 @@ int VerificaVelha( int velha[3][3] )
 		return 1;
 	}
 
+	soma = 0;
+
+	for (int i = 0; i < 3; i++) {
+		if (velha[i][1] == 1) {
+			soma += 1;
+		}
+	}
+
+	if (soma == 3) {
+		return 1;
+	}
+
 	return 0; /*!< retorna zero para teste */ 
 }
 
