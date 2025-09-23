@@ -2,8 +2,9 @@
  * \file  velha.cpp
  */
 
- 
-#include "velha.hpp"
+// Copyright 2025 Letícia Souza
+
+#include "./velha.hpp"
 
 /** 
  * @brief verifica situacao do jogo da velha  
@@ -13,25 +14,22 @@
  *  Descrever o que a funcao faz
  */ 
 
-int VerificaVelha( int velha[3][3] )
-{
-	int soma = 0;
+int VerificaVelha(int velha[3][3]) {
+  int soma = 0;
 
-	for (int coluna = 0; coluna < 3; coluna++) {
-		for (int linha = 0; linha < 3; linha++) {
-			if (velha[linha][coluna] == 1) {
-				soma += 1;
-			}
-		}
+  for (int coluna = 0; coluna < 3; coluna++) {
+    for (int linha = 0; linha < 3; linha++) {
+    if (velha[linha][coluna] == 1) {
+      soma += 1;
+      }
+    }
 
-		if (soma == 3) {
-			return 1;
-		}
+    if (soma == 3) {
+    return 1;
+    }
 
-		soma = 0;
-	}
+    soma = 0;
+  }
 
-	return 0; /*!< retorna zero para teste */ 
+  return 0;  // !< retorna zero para teste
 }
-
-
