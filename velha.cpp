@@ -34,11 +34,11 @@ int VerificaVelha(int velha[3][3]) {
   }
 
   if (VerificaDiagonal(velha[0][0], velha[1][1], velha[2][2])) {
-    return 1;
+    return velha[0][0];
   }
 
   if (VerificaDiagonal(velha[0][2], velha[1][1], velha[2][0])) {
-    return 1;
+    return velha[0][2];
   }
 
   return 0;  // !< retorna zero para teste
