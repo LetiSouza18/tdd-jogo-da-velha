@@ -43,6 +43,18 @@ int VerificaVelha(int velha[3][3]) {
     if (somaLinha == 3 || somaColuna == 3) {
       return 1;
     }
+
+    somaColuna = 0;
+
+    for (int j = 0; j < 3; j++) {
+      if (velha[j][i] == 2) {
+        somaColuna++;
+      }
+    }
+
+    if (somaColuna == 3) {
+      return 2;
+    }
   }
 
   if (VerificaDiagonal(velha[0][0], velha[1][1], velha[2][2])) {
