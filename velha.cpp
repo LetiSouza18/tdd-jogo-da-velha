@@ -26,6 +26,7 @@ int VerificaVelha(int velha[3][3]) {
   int somaLinhaX = 0;
   int somaColunaX = 0;
   int somaColunaO = 0;
+  int somaLinhaO = 0;
 
   for (int i = 0; i < 3; i++) {
     somaColunaX = 0;
@@ -40,6 +41,10 @@ int VerificaVelha(int velha[3][3]) {
         somaColunaX++;
       }
 
+      if (velha[i][j] == 2) {
+        somaLinhaO++;
+      }
+
       if (velha[j][i] == 2) {
         somaColunaO++;
       }
@@ -49,7 +54,7 @@ int VerificaVelha(int velha[3][3]) {
       return 1;
     }
 
-    if (somaColunaO == 3) {
+    if (somaColunaO == 3 || somaLinhaO == 3) {
       return 2;
     }
   }
