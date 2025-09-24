@@ -70,3 +70,27 @@ TEST_CASE("Vitória x na segunda diagonal", "[vitória][X]") {
                     };
   REQUIRE(VerificaVelha(teste1) == 1);
 }
+
+TEST_CASE("Vitória O na primeira coluna da vertical", "[vitória][O]") {
+  int teste1[3][3]= {   { 2, 1, 1 },
+                        { 2, 1, 0 },
+                        { 2, 2, 0 }
+                    };
+  REQUIRE(VerificaVelha(teste1) == 2);
+}
+
+TEST_CASE("Vitória O na segunda coluna da vertical", "[vitória][O]") {
+  int teste1[3][3]= {   { 2, 2, 1 },
+                        { 1, 2, 2 },
+                        { 1, 2, 1 }
+                    };
+  REQUIRE(VerificaVelha(teste1) == 2);
+}
+
+TEST_CASE("Vitória O na terceira coluna da vertical", "[vitória][O]") {
+  int teste1[3][3]= {   { 0, 1, 2 },
+                        { 1, 2, 2 },
+                        { 1, 0, 2 }
+                    };
+  REQUIRE(VerificaVelha(teste1) == 2);
+}
