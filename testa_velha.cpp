@@ -62,3 +62,11 @@ TEST_CASE("Vitória x na primeira diagonal", "[vitória][X]") {
                     };
   REQUIRE(VerificaVelha(teste1) == 1);
 }
+
+TEST_CASE("Vitória x na segunda diagonal", "[vitória][X]") {
+  int teste1[3][3]= {   { 0, 2, 1 },
+                        { 1, 1, 2 },
+                        { 1, 2, 2 }
+                    };
+  REQUIRE(VerificaVelha(teste1) == 1);
+}
