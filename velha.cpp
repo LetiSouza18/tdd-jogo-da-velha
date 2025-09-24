@@ -14,6 +14,14 @@
  *  Descrever o que a funcao faz
  */ 
 
+int VerificaDiagonal(int a, int b, int c) {
+  if (a == b && b == c) {
+    return 1;
+  }
+
+  return 0;
+}
+
 int VerificaVelha(int velha[3][3]) {
   int somaLinha = 0;
   int somaColuna = 0;
@@ -37,13 +45,14 @@ int VerificaVelha(int velha[3][3]) {
     }
   }
 
-  if (velha[0][0] == 1 && velha[1][1] == velha[0][0] && velha[2][2] == velha[1][1]) {
+  if (VerificaDiagonal(velha[0][0], velha[1][1], velha[2][2])) {
     return 1;
   }
 
-  if (velha[0][2] == 1 && velha[1][1] == 1 && velha[2][0] == 1) {
+  if (VerificaDiagonal(velha[0][2], velha[1][1], velha[2][0])) {
     return 1;
   }
 
   return 0;  // !< retorna zero para teste
 }
+
