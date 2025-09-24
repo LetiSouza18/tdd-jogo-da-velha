@@ -16,7 +16,7 @@
 
 int VerificaDiagonal(int a, int b, int c) {
   if (a == b && b == c) {
-    return 1;
+    return a;
   }
 
   return 0;
@@ -33,13 +33,13 @@ int VerificaVelha(int velha[3][3]) {
     }
   }
 
-  if (VerificaDiagonal(velha[0][0], velha[1][1], velha[2][2])) {
-    return velha[0][0];
-  }
+  int primeiraDiagonal = VerificaDiagonal(velha[0][0], velha[1][1], velha[2][2]);
 
-  if (VerificaDiagonal(velha[0][2], velha[1][1], velha[2][0])) {
-    return velha[0][2];
-  }
+  if (primeiraDiagonal) return primeiraDiagonal;
+    
+  int segundaDiagonal = VerificaDiagonal(velha[0][2], velha[1][1], velha[2][0]);
+
+  if (segundaDiagonal) return segundaDiagonal;
 
   return 0;  // !< retorna zero para teste
 }
