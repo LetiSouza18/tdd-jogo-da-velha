@@ -23,36 +23,33 @@ int VerificaDiagonal(int a, int b, int c) {
 }
 
 int VerificaVelha(int velha[3][3]) {
-  int somaLinha = 0;
-  int somaColuna = 0;
+  int somaLinhaX = 0;
+  int somaColunaX = 0;
+  int somaColunaO = 0;
 
   for (int i = 0; i < 3; i++) {
-    somaColuna = 0;
-    somaLinha = 0;
+    somaColunaX = 0;
+    somaLinhaX = 0;
     
     for (int j = 0; j < 3; j++) {
       if (velha[i][j] == 1) {
-        somaLinha++;
+        somaLinhaX++;
       }
 
       if (velha[j][i] == 1) {
-        somaColuna++;
+        somaColunaX++;
+      }
+
+      if (velha[j][i] == 2) {
+        somaColunaO++;
       }
     }
 
-    if (somaLinha == 3 || somaColuna == 3) {
+    if (somaLinhaX == 3 || somaColunaX == 3) {
       return 1;
     }
 
-    somaColuna = 0;
-
-    for (int j = 0; j < 3; j++) {
-      if (velha[j][i] == 2) {
-        somaColuna++;
-      }
-    }
-
-    if (somaColuna == 3) {
+    if (somaColunaO == 3) {
       return 2;
     }
   }
