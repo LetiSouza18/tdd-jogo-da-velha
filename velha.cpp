@@ -15,7 +15,7 @@
  * @return Retorna o valor do jogador (1 ou 2) se houver vitória, ou 0 caso contrário.
  */
 
-int VerificaDiagonal(int a, int b, int c) {
+int VerificaIgualdade(int a, int b, int c) {
   if (a == b && b == c) {
     return a;
   }
@@ -36,7 +36,7 @@ int VerificaVelha(int velha[3][3]) {
   int quantidadeO = 0;
 
   // o loop vai iterar por todos os elementos da matriz
-  // garante que um jogador não tenha duas ou mais jogadas do que o outro
+  // valida que o jogo é possível
 
   for (int i = 0; i < 3; i++) {
     for (int j = 0; j < 3; j++) {
@@ -51,23 +51,36 @@ int VerificaVelha(int velha[3][3]) {
     }
   }
 
+  // garante que um jogador não tenha duas ou mais jogadas do que o outro
+
   if (abs(quantidadeX - quantidadeO) > 1) {
     return -2;
   }
 
   // o loop vai acontecer três vezes para verificar todas as linhas e colunas
 
+  int resultadoLinha = 0;
+  int resultadoColuna = 0;
+
   for (int i = 0; i < 3; i++) {
     // verifica se os três dígitos na linha i são iguais
 
-    if (velha[i][0] == velha[i][1] && velha[i][1] == velha[i][2]) {
-      return velha[i][0];
+    resultadoLinha = VerificaIgualdade(velha[i][0], velha[i][1], velha[i][2]);
+
+    // vitória na linha 
+
+    if (resultadoLinha != 0) {
+      return resultadoLinha;
     }
 
     // verifica se os três dígitos na coluna i são iguais
 
-    if (velha[0][i] == velha[1][i] && velha[1][i] == velha[2][i]) {
-      return velha[0][i];
+    resultadoColuna = VerificaIgualdade(velha[0][i], velha[1][i], velha[2][i]);
+
+    // vitória na coluna
+
+    if (resultadoColuna != 0) {
+      return resultadoColuna;
     }
   }
 
@@ -75,7 +88,9 @@ int VerificaVelha(int velha[3][3]) {
 
   int resultadoDiagonal = 0;
   
-  resultadoDiagonal = VerificaDiagonal(velha[0][0], velha[1][1], velha[2][2]);
+  resultadoDiagonal = VerificaIgualdade(velha[0][0], velha[1][1], velha[2][2]);
+
+  // vitória na diagonal
 
   if (resultadoDiagonal != 0) {
     return resultadoDiagonal;
@@ -83,11 +98,15 @@ int VerificaVelha(int velha[3][3]) {
 
   // verifica se os três dígitos na segunda diagonal são iguais
 
-  resultadoDiagonal = VerificaDiagonal(velha[0][2], velha[1][1], velha[2][0]);
+  resultadoDiagonal = VerificaIgualdade(velha[0][2], velha[1][1], velha[2][0]);
+
+  // vitória na diagonal
 
   if (resultadoDiagonal != 0) {
     return resultadoDiagonal;
   }
+
+  // não teve nenhuma vitória e todos as posições estão completas, então empate
 
   if (quantidadeO + quantidadeX == 9) {
     return 0;
