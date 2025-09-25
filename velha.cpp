@@ -59,51 +59,48 @@ int VerificaVelha(int velha[3][3]) {
 
   // o loop vai acontecer três vezes para verificar todas as linhas e colunas
 
-  int resultadoLinha = 0;
-  int resultadoColuna = 0;
+  int resultado = 0;
 
   for (int i = 0; i < 3; i++) {
     // verifica se os três dígitos na linha i são iguais
 
-    resultadoLinha = VerificaIgualdade(velha[i][0], velha[i][1], velha[i][2]);
+    resultado = VerificaIgualdade(velha[i][0], velha[i][1], velha[i][2]);
 
     // vitória na linha
 
-    if (resultadoLinha != 0) {
-      return resultadoLinha;
+    if (resultado != 0) {
+      return resultado;
     }
 
     // verifica se os três dígitos na coluna i são iguais
 
-    resultadoColuna = VerificaIgualdade(velha[0][i], velha[1][i], velha[2][i]);
+    resultado = VerificaIgualdade(velha[0][i], velha[1][i], velha[2][i]);
 
     // vitória na coluna
 
-    if (resultadoColuna != 0) {
-      return resultadoColuna;
+    if (resultado != 0) {
+      return resultado;
     }
   }
 
   // verifica se os três dígitos na primeira diagonal são iguais
 
-  int resultadoDiagonal = 0;
-
-  resultadoDiagonal = VerificaIgualdade(velha[0][0], velha[1][1], velha[2][2]);
+  resultado = VerificaIgualdade(velha[0][0], velha[1][1], velha[2][2]);
 
   // vitória na diagonal
 
-  if (resultadoDiagonal != 0) {
-    return resultadoDiagonal;
+  if (resultado != 0) {
+    return resultado;
   }
 
   // verifica se os três dígitos na segunda diagonal são iguais
 
-  resultadoDiagonal = VerificaIgualdade(velha[0][2], velha[1][1], velha[2][0]);
+  resultado = VerificaIgualdade(velha[0][2], velha[1][1], velha[2][0]);
 
   // vitória na diagonal
 
-  if (resultadoDiagonal != 0) {
-    return resultadoDiagonal;
+  if (resultado != 0) {
+    return resultado;
   }
 
   // não teve nenhuma vitória e todos as posições estão completas, então empate
@@ -112,6 +109,6 @@ int VerificaVelha(int velha[3][3]) {
     return 0;
   }
 
-  return -1;  // !< retorna zero para teste
+  return -1;  // o jogo ainda não está definido
 }
 
