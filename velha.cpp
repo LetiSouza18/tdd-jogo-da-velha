@@ -89,6 +89,10 @@ int VerificaVelha(int velha[3][3]) {
     return resultadoDiagonal;
   }
 
-  return 0;  // !< retorna zero para teste
+  if (quantidadeO + quantidadeX == 9) {
+    return 0;
+  }
+
+  return 9;  // !< retorna zero para teste
 }
 
