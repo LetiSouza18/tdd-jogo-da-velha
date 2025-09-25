@@ -67,7 +67,7 @@ int VerificaVelha(int velha[3][3]) {
 
     resultadoLinha = VerificaIgualdade(velha[i][0], velha[i][1], velha[i][2]);
 
-    // vitória na linha 
+    // vitória na linha
 
     if (resultadoLinha != 0) {
       return resultadoLinha;
@@ -87,7 +87,7 @@ int VerificaVelha(int velha[3][3]) {
   // verifica se os três dígitos na primeira diagonal são iguais
 
   int resultadoDiagonal = 0;
-  
+
   resultadoDiagonal = VerificaIgualdade(velha[0][0], velha[1][1], velha[2][2]);
 
   // vitória na diagonal
@@ -112,6 +112,6 @@ int VerificaVelha(int velha[3][3]) {
     return 0;
   }
 
-  return 9;  // !< retorna zero para teste
+  return -1;  // !< retorna zero para teste
 }
 
