@@ -7,13 +7,13 @@
 #include "./velha.hpp"
 #include <cmath>
 
-/** 
- * @brief verifica situacao do jogo da velha  
- * @author Programador 
- * @param  velha descreve o parametro
- * 
- *  Descrever o que a funcao faz
- */ 
+/**
+ * @brief Verifica se três posições da matriz são iguais e não vazias.
+ * @param a A primeira posição a ser verificada.
+ * @param b A segunda posição a ser verificada.
+ * @param c A terceira posição a ser verificada.
+ * @return Retorna o valor do jogador (1 ou 2) se houver vitória, ou 0 caso contrário.
+ */
 
 int VerificaDiagonal(int a, int b, int c) {
   if (a == b && b == c) {
@@ -23,11 +23,20 @@ int VerificaDiagonal(int a, int b, int c) {
   return 0;
 }
 
+/** 
+ * @brief Verifica situacao do jogo da velha  
+ * @author Programador 
+ * @param  velha A matriz 3x3 que representa o estado do jogo.
+ * @return Retorna 1 se o jogador 'X' venceu, 2 se 'O' venceu, -2 se o estado do jogo for inválido,
+ * ou 0 se o jogo não terminou.
+ */ 
+
 int VerificaVelha(int velha[3][3]) {
   int quantidadeX = 0;
   int quantidadeO = 0;
 
   // o loop vai iterar por todos os elementos da matriz
+  // garante que o número de jogadas seja válido, de forma que é impossível um jogador ter duas ou mais jogadas a mais do que o outro
 
   for (int i = 0; i < 3; i++) {
     for (int j = 0; j < 3; j++) {
@@ -45,25 +54,19 @@ int VerificaVelha(int velha[3][3]) {
     return -2;
   }
   
-  // o loop vai acontecer três vezes para verificar as três linhas e as três colunas
+  // o loop vai acontecer três vezes para verificar todas as linhas e colunas
 
   for (int i = 0; i < 3; i++) {
 
     // verifica se os três dígitos na linha i são iguais
 
     if (velha[i][0] == velha[i][1] && velha[i][1] == velha[i][2]) {
-
-      // retorna 1 se for 'x' e 2 se for 'o'
-
       return velha[i][0];
     }
 
     // verifica se os três dígitos na coluna i são iguais
 
     if (velha[0][i] == velha[1][i] && velha[1][i] == velha[2][i]) {
-
-      // retorna 1 se for 'x' e 2 se for 'o'
-
       return velha[0][i];
     }
   }
