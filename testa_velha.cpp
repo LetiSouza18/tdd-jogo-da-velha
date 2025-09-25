@@ -134,3 +134,27 @@ TEST_CASE("Vitória O na segunda diagonal", "[vitória][O]") {
                     };
   REQUIRE(VerificaVelha(teste1) == 2);
 }
+
+TEST_CASE("Jogo com uma diferença entre X e O maior do que 1", "[impossível]") {
+  int teste1[3][3]= {   { 1, 0, 1 },
+                        { 1, 2, 1 },
+                        { 2, 1, 2 }
+                    };
+  REQUIRE(VerificaVelha(teste1) == -2);
+}
+
+TEST_CASE("Jogo só com x", "[impossível]") {
+  int teste1[3][3]= {   { 1, 1, 1 },
+                        { 1, 1, 1 },
+                        { 1, 1, 1 }
+                    };
+  REQUIRE(VerificaVelha(teste1) == -2);
+}
+
+TEST_CASE("Jogo só com O", "[impossível]") {
+  int teste1[3][3]= {   { 2, 2, 2 },
+                        { 0, 0, 0 },
+                        { 2, 2, 0 }
+                    };
+  REQUIRE(VerificaVelha(teste1) == -2);
+}
