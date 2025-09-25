@@ -40,16 +40,13 @@ int VerificaVelha(int velha[3][3]) {
 
   for (int i = 0; i < 3; i++) {
     for (int j = 0; j < 3; j++) {
-      if (velha[i][j] != 1 && velha[i][j] != 2 && velha[i][j] != 0) {
-        return -2;
-      }
-
       if (velha[i][j] == 1) {
         quantidadeX++;
-      }
-
-      if (velha[i][j] == 2) {
-        quantidadeO++;
+      } else if (velha[i][j] == 2) {
+          quantidadeO++;
+      } else if (velha[i][j] != 0) {
+          // aceita somente os valores 1 (x), 2 (o) e 0 (vazio)
+          return -2;
       }
     }
   }
@@ -76,17 +73,21 @@ int VerificaVelha(int velha[3][3]) {
 
   // verifica se os três dígitos na primeira diagonal são iguais
 
-  int primeiraDiagonal = VerificaDiagonal(velha[0][0],
-                                          velha[1][1],
-                                          velha[2][2]);
+  int resultadoDiagonal = 0;
+  
+  resultadoDiagonal = VerificaDiagonal(velha[0][0], velha[1][1], velha[2][2]);
 
-  if (primeiraDiagonal) return primeiraDiagonal;
+  if (resultadoDiagonal != 0) {
+    return resultadoDiagonal;
+  }
 
   // verifica se os três dígitos na segunda diagonal são iguais
 
-  int segundaDiagonal = VerificaDiagonal(velha[0][2], velha[1][1], velha[2][0]);
+  resultadoDiagonal = VerificaDiagonal(velha[0][2], velha[1][1], velha[2][0]);
 
-  if (segundaDiagonal) return segundaDiagonal;
+  if (resultadoDiagonal != 0) {
+    return resultadoDiagonal;
+  }
 
   return 0;  // !< retorna zero para teste
 }
