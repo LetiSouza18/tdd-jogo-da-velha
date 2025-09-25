@@ -192,3 +192,19 @@ TEST_CASE("Empate com todos os espaços preenchidos", "[empate]") {
   REQUIRE(VerificaVelha(teste1) == 0);
 }
 
+TEST_CASE("Todas as posições estão vazias", "[indefinido]") {
+  int teste1[3][3]= {   { 0, 0, 0 },
+                        { 0, 0, 0 },
+                        { 0, 0, 0 }
+                    };
+  REQUIRE(VerificaVelha(teste1) == -1);
+}
+
+TEST_CASE("Nenhum jogador venceu por enquanto", "[indefinido]") {
+  int teste1[3][3]= {   { 1, 2, 2 },
+                        { 2, 1, 0 },
+                        { 1, 1, 0 }
+                    };
+  REQUIRE(VerificaVelha(teste1) == -1);
+}
+
