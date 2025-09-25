@@ -182,3 +182,13 @@ TEST_CASE("Matriz contém um número maior do que 2", "[impossível]") {
                     };
   REQUIRE(VerificaVelha(teste1) == -2);
 }
+
+
+TEST_CASE("Empate com todos os espaços preenchidos", "[empate]") {
+  int teste1[3][3]= {   { 1, 2, 1 },
+                        { 1, 2, 1 },
+                        { 2, 1, 2 }
+                    };
+  REQUIRE(VerificaVelha(teste1) == 0);
+}
+
