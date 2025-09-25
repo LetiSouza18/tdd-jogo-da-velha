@@ -158,3 +158,27 @@ TEST_CASE("Jogo só com O", "[impossível]") {
                     };
   REQUIRE(VerificaVelha(teste1) == -2);
 }
+
+TEST_CASE("Matriz contém uma string", "[impossível]") {
+  int teste1[3][3]= {   { 2, 1, 2 },
+                        { 0, 1, 0 },
+                        { 2, 'm', 0 }
+                    };
+  REQUIRE(VerificaVelha(teste1) == -2);
+}
+
+TEST_CASE("Matriz contém um número negativo", "[impossível]") {
+  int teste1[3][3]= {   { 1, 1, 2 },
+                        { 1, 0, -1 },
+                        { 2, 2, 0 }
+                    };
+  REQUIRE(VerificaVelha(teste1) == -2);
+}
+
+TEST_CASE("Matriz contém um número maior do que 2", "[impossível]") {
+  int teste1[3][3]= {   { 2, 1, 2 },
+                        { 0, 0, 0 },
+                        { 1, 1, 7 }
+                    };
+  REQUIRE(VerificaVelha(teste1) == -2);
+}
